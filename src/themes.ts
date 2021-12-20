@@ -149,5 +149,15 @@ export const themes = {
     grade2: "#cb4b16",
     grade1: "#b58900",
     grade0: "#eee8d5"
-  }
+  },
+    jankariTech: {
+      background: "#ffffff",
+      text: "#586e75",
+      meta: "#93a1a1",
+      grade4: "#476a30",
+      grade3: "#6f8f3d",
+      grade2: "#88b04b",
+      grade1: "#b0cb86",
+      grade0: "#e1dcc6"
+    }
 };
