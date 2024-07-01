@@ -37,6 +37,7 @@ interface GraphEntry {
 interface Options {
   scaleFactor?: number;
   startingDate?: string;
+  endDate?: string;
   themeName?: keyof typeof themes;
   customTheme?: Theme;
   skipHeader?: boolean;
@@ -128,9 +129,14 @@ function drawYear(ctx: CanvasRenderingContext2D, opts: DrawYearOptions) {
   } = opts;
   const theme = getTheme(opts);
 
-  const today = new Date();
-  const thisYear = format(today, "yyyy");
-  const lastDate = year.year === thisYear ? today : parseISO(year.range.end);
+  let endDate;
+  if (opts.endDate) {
+    endDate = parseISO(`${opts.endDate}`);
+  } else {
+    endDate = new Date();
+  }
+  const thisYear = format(endDate, "yyyy");
+  const lastDate = year.year === thisYear ? endDate : parseISO(year.range.end);
   let firstRealDate
   firstRealDate = parseISO(`${year.year}-01-01`);
   if (opts.startingDate) {
